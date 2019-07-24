@@ -1,0 +1,5 @@
+領域の確認
+select * from v$recovery_file_dest;
+
+領域の拡張
+alter system set db_recovery_file_dest_size = xxxx（サイズ指定）
