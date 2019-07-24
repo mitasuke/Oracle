@@ -1,0 +1,14 @@
+アーカイブログの一部を別領域に物理的に退避
+この時点では、Oracleとしては「ファイルが消えた」と認識できていない
+
+RMANに接続
+rman target /
+
+OSとOracleとで認識している削除ファイルを一致させる（Oracle側から消したいファイルにチェックをつける）
+crosscheck archivelog all;
+
+Oracleが持っている情報から削除ファイルを完全削除
+delete expired archivelog all;
+
+Oracleが認識しているアーカイブログ一覧を確認
+list archivelog all;
