@@ -1,0 +1,12 @@
+ログイン
+su - oracle
+sqlplus /nolog
+connect / as sysdba
+
+とにかく設定状況を出力させる
+SQL> show parameters;
+
+デッドロックの有無を確認
+SQL> SELECT SID, SERIAL#, LOCKWAIT, STATUS, COMMAND FROM V$SESSION;
+SQL> select SID, TYPE, BLOCK FROM V$LOCK;
+
